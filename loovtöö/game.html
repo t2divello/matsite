@@ -1,0 +1,606 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>viktoriini äpp</title>
+<style>
+  .navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    z-index: 1;
+    width: 10%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .navbar__links span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border-bottom: 2px solid #9518fc;
+    border-radius: 15px;
+    transform: scale(0) translateY(50px);
+    opacity: 0;
+    transition: .5s;
+  }
+  .navbar__links:hover span {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+  .navbar__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+  }
+  
+  .navbar__item {
+    height: 40px;
+  }
+  
+  
+  
+  
+
+  
+  .navbar__links:hover {
+    text-shadow: 0 0 10px #9518fc;
+    transition: all 0.3s ease;
+  }
+  
+  @media screen and (max-width: 480px) {
+    .navbar__container {
+      display: flex;
+    }
+  }
+  
+  .navbar {
+    background-color: rgba(26,26,26, 0.5); /* Black background with 50% opacity */
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add this line */
+  }
+  
+  .navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 6   0px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 50px;
+  }
+
+  
+  .navbar__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+  }
+  
+  .navbar__item {
+    height: 80px;
+  }
+  
+  .navbar__links {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 125px;
+    text-decoration: none;
+    height: 100%;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+  }
+  
+  
+  
+
+  
+  .navbar__links:hover {
+    color: #9518fc;
+    transition: all 0.3s ease;
+  }
+  .icon{
+    color:rgb(200, 200, 200);
+    margin-right: -20px;
+    
+
+
+  }
+  .glitch {
+    font-size: 2.9rem;
+    color:white;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+      0.025em 0.04em 0 #fffc00;
+    animation: glitch 725ms infinite;
+    margin-top: -10px;
+    margin-left: -70px;
+  }
+  
+  .glitch span {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .glitch span:first-child {
+    animation: glitch 500ms infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+    transform: translate(-0.04em, -0.03em);
+    opacity: 0.75;
+  }
+  
+  .glitch span:last-child {
+    animation: glitch 375ms infinite;
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+    transform: translate(0.04em, 0.03em);
+    opacity: 0.75;
+  }
+  
+  @keyframes glitch {
+    0% {
+      text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+        0.025em 0.04em 0 #fffc00;
+    }
+    15% {
+      text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+        0.025em 0.04em 0 #fffc00;
+    }
+    16% {
+      text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+        -0.05em -0.05em 0 #fffc00;
+    }
+    49% {
+      text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+        -0.05em -0.05em 0 #fffc00;
+    }
+    50% {
+      text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+        0 -0.04em 0 #fffc00;
+    }
+    99% {
+      text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+        0 -0.04em 0 #fffc00;
+    }
+    100% {
+      text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #fc00ff,
+        -0.04em -0.025em 0 #fffc00;
+    }
+  }
+  
+  
+  @media screen and (max-width: 960px) {
+    .navbar__container {
+      display: flex;
+      justify-content: space-between;
+      height: 80px;
+      z-index: 1;
+      width: 100%;
+      max-width: 1300px;
+      padding: 0;
+    }
+  
+    .navbar__menu {
+      display: grid;
+      grid-template-columns: auto;
+      margin: 0;
+      width: 100%;
+      position: absolute;
+      top: -1000px;
+      opacity: 1;
+      transition: all 0.5s ease;
+      z-index: -1;
+    }
+  
+    .navbar__menu.active {
+      background: #131313;
+      top: 100%;
+      opacity: 1;
+      transition: all 0.5s ease;
+      z-index: 99;
+      height: 60vh;
+      font-size: 1.6rem;
+    }
+  
+    #navbar__logo {
+      padding-left: 25px;
+    }
+  
+    .navbar__toggle .bar {
+      width: 25px;
+      height: 3px;
+      margin: 5px auto;
+      transition: all 0.3s ease-in-out;
+      background: #fff;
+    }
+  
+    .navbar__item {
+      width: 100%;
+    }
+  
+    .navbar__links {
+      text-align: center;
+      padding: 2rem;
+      width: 100%;
+      display: table;
+    }
+  
+   
+  
+    #mobile-menu {
+      position: absolute;
+      top: 20%;
+      right: 5%;
+      transform: translate(5%, 20%);
+    }
+  
+    .navbar__toggle .bar {
+      display: block;
+      cursor: pointer;
+    }
+  
+    #mobile-menu.is-active .bar:nth-child(2) {
+      opacity: 0;
+    }
+  
+    #mobile-menu.is-active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+  
+    #mobile-menu.is-active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+
+ 
+  @media screen and (max-width: 1100px) {
+    .main__container {
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin: 0 auto;
+      height: 90%;
+    }
+  
+
+  
+  }
+  
+  @media screen and (max-width: 480px) {
+
+ 
+  }
+/*	import it from google fonts or use any font*/
+	@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+	body {
+  background-image: url('https://cdn.pixabay.com/photo/2023/03/08/19/37/mathematics-7838562_1280.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+		
+		font-family: 'Merriweather', serif;
+	}
+	.container {
+		position: absolute;
+		transform: translate(-50%, -50%);
+		top: 50%;
+		left: 50%;
+		background-color: white;
+		width: 700px;
+		height: auto;
+		margin: 0px;
+		border: 1px solid #DDDDDD;
+		border-radius: 4px;
+	}
+	.progress-bar {
+		height: 4px;
+		width: calc(0% - 3px);
+		background-color: white;
+		border-radius: 0px 14px 14px 0px;
+		position: absolute;
+		top: 71px;
+		border: 3px solid #098bdc;
+		border-left: 0px;
+		transition-duration: .4s;
+	}
+	.quiz-header {
+		width: 100%;
+		line-height: 76px;
+		background-color: #4EB7F8;
+		border-radius: 4px 4px 0px 0px;
+		color: white;
+		font-size: 25px;
+	}
+	.quiz-header .heading {
+		display: inline-block;
+		margin-left: 40px;
+	}
+	.quiz-header .total-q {
+		float: right;
+		display: inline-block;
+		margin-right: 40px;
+	}
+	.question ul li {
+		list-style: none;
+		display: none;
+	}
+
+	.question ul li:first-child {
+		display: block;
+	}
+	.question .q {
+		font-size: 20px;
+		margin: 30px 40px 20px 0px;
+	}
+	.question button {
+		display: block;
+		width: 280px;
+		text-align: left;
+		padding-left: 10px;
+		height: 33px;
+		margin: 10px 50px 10px 0px;
+		border: 1px solid #91D2FA;
+		background-color: rgba(0,0,0,0.00);
+		border-radius: 3px;
+		transition-duration: .2s;
+		cursor: pointer;
+		font-family: 'Montserrat', sans-serif;
+	}
+	.question button:hover {
+		color: white;
+		background-color: #4EB7F8;
+		border: 1px solid #4EB7F8;
+	}
+	.question button:focus {
+		outline: none;
+	}
+	.quiz-footer {
+		border-top: 1px solid #DDDDDD;
+		width: 100%;
+		line-height: 75px;
+		margin-top: 30px;
+	}
+	.quiz-footer .timeout {
+		display: inline-block;
+		margin-left: 35px;
+	}
+	.quiz-footer .timeout span {
+		font-size: 25px;
+	}
+	.quiz-footer button {
+		display: inline-block;
+		float: right;
+		margin-top: 22px;
+		margin-right: 38px;
+		background-color: #4EB7F8;
+		border: 0px;
+		color: white;
+		padding: 8px 30px;
+		border-radius: 4px;
+		cursor: pointer;
+		font-family: 'Montserrat', sans-serif;
+	}
+	.question button.correct {
+		border: 1px solid green;
+		background-color: rgba(0, 243, 0, .50);
+	}
+	.question button.wrong {
+		border: 1px solid red;
+		background-color: rgba(255, 0, 0, .50);
+	}
+	@media screen and (max-width: 715px){
+		.container {
+			width: 95%;
+		}
+	}
+</style>
+</head>
+
+<body>
+  
+	<div class="container">
+		<div class="progress-bar"></div>
+		<div class="quiz-header">
+			<div class="heading">jagorX viktoriin</div>
+			<div class="total-q">0/0</div>
+		</div>
+		<div class="quiz-body">
+			<div class="question">
+				<ul>
+
+<li answer-number="1">
+  <div class="q">Leia ristküliku ümbermõõt, kui selle pikkus on 12 cm ja laius 8 cm.</div>
+  <button type="button">20 cm</button>
+  <button type="button">40 cm</button>
+  <button type="button">56 cm</button>
+  <button type="button">40 cm</button>
+</li>
+<li answer-number="2">
+  <div class="q">Pood pakub kõikidele esemetel 20% allahindlust. Kui särgi algne hind on 25 eurot, siis mis on allahindletud hind?</div>
+  <button type="button"> 20 eurot</button>
+  <button type="button">18 eurot</button>
+  <button type="button">15 eurot</button>
+  <button type="button">20 eurot</button>
+</li>
+<li answer-number="3">
+  <div class="q">mis on pi(π) väärtus?</div>
+  <button type="button">3.14</button>
+  <button type="button">2.71</button>
+  <button type="button">1.618</button>
+  <button type="button">0.577</button>
+</li>
+<li answer-number="4">
+  <div class="q">Auto sõidab kiirusega 60 km/h. Kui kaugele see jõuab 3 tunniga?</div>
+  <button type="button">180 km</button>
+  <button type="button">120 km</button>
+  <button type="button">160 km</button>
+  <button type="button">180 km</button>
+</li>
+<li answer-number="3">
+  <div class="q"?>mis on nürinurk</div>
+  <button type="button">suur kolmnurk</button>
+  <button type="button">ruudu kujuline ristkülik</button>
+  <button type="button">kolmnurk mille nurk on suurem kui 90 kraadi</button>
+  <button type="button">kolmnurk mille nurk on väiksem kui 90 kraadi</button>
+</li>
+<li answer-number="1">
+  <div class="q">Leia ruudu pindala, kui selle ümbermõõt on 24 meetrit.</div>
+  <button type="button">12m²</button>
+  <button type="button">36m²</button>
+  <button type="button">48m²</button>
+  <button type="button">36m²</button>
+</li>
+
+				</ul>
+			</div>
+		</div>
+		<div class="quiz-footer">
+			<div class="timeout">Aega jäänud: <span>20</span>s</div>
+			<button type="button" onClick="showQ()" id="showQ">Next</button>
+			<button type="button" onClick="result(true)" id="result" style="display: none">Get Result</button>
+		</div>
+	</div>
+<script>
+window.onload = showQ;
+
+var i = 0;
+function showQ(){
+
+	var ul = document.getElementsByTagName('ul')[0];
+	var li = ul.getElementsByTagName('li');
+	for(var j = 0; j<= li.length-1; j++){
+
+		if(i == j){
+			li[j].style.display = 'block';
+			
+			var ans = li[j].getAttribute('answer-number');
+			var btn = li[j].getElementsByTagName('button');
+			for(var k = 0; k <= btn.length-1; k++){
+				if(k+1 == ans){
+					
+					btn[k].setAttribute('answer', true);
+					
+					btn[k].setAttribute('onClick', "clickAns("+i+", this)");
+					
+				}else{
+					btn[k].setAttribute('answer', false);
+					btn[k].setAttribute('onClick', "clickAns("+i+", this)");
+				}
+			}
+		}else{
+			li[j].style.display = 'none';
+		}
+	}
+	
+	document.getElementsByClassName('total-q')[0].innerHTML = i+1 + "/" + li.length;
+	
+	document.getElementsByClassName('progress-bar')[0].style.width = (i/li.length)*100 + '%';
+	
+	if(i == li.length-1){
+		i = 0;
+		
+		document.getElementById("showQ").style.display = 'none';
+		document.getElementById("result").style.display = 'block';
+		document.getElementsByClassName('timeout')[0].setAttribute('show-result', 'true')
+	}else{
+		i++;
+	}
+	// disable show next question button until not answered
+	document.getElementById("showQ").disabled = true;
+	// now make a timeout
+	// test it
+	document.getElementsByClassName('timeout')[0].setAttribute('data-remain', 20);
+}
+setInterval(function(){
+	// this function will get data-remain value and decrease by 1 and add to data-remain again after 1 second
+	var dataContainer = document.getElementsByClassName('timeout')[0];
+	var getData = dataContainer.getAttribute('data-remain');
+	// if answer is last then don't show first answer just show result
+	var showResult = dataContainer.getAttribute('show-result');
+	// but we need to set this attribute on last question
+	if(getData >= 0){
+		try{document.querySelector('.timeout span').innerHTML = getData}catch{};
+			getData--;
+			dataContainer.setAttribute('data-remain', getData);
+	}else{
+		// now if last question
+		if(showResult == 'true'){
+			document.getElementById('result').click();
+		}else{
+		    // if getData is less than 0
+		    // then show next answer
+		    showQ();
+		}
+	}
+}, 1000);
+// now make a function for answer
+function clickAns(i, e){
+	var ul = document.getElementsByTagName('ul')[0];
+	var li = ul.getElementsByTagName('li');
+	var btn = li[i].getElementsByTagName('button');
+	// get the answer form the button 
+	var v = e.getAttribute('answer');
+	for(var j = 0; j <= btn.length-1; j++){
+		if(v == 'true'){
+			// if answer is true
+			e.className = 'correct';
+			result(false);
+		}else{
+			e.className = 'wrong';
+			//first make both class in css
+			// also show correct answer after wrong clicked
+			for(var k = 0; k <= btn.length-1; k++){
+//				we only need the show correct ans
+				if(btn[k].getAttribute('answer') == 'true'){
+					btn[k].className = 'correct';
+				}
+				
+			}
+		}
+		// disable button after first click
+		btn[j].disabled = true;
+	}
+	// also enable next question button after click
+	document.getElementById("showQ").disabled = false;
+}
+// now get the result
+var numPerQ = 5;
+var correctAns = 0;
+	// we run the function from two side 1 just add correct answer number and 2 will show answer
+function result(showAns){
+	var ul = document.getElementsByTagName('ul')[0];
+	var li = ul.getElementsByTagName('li');
+	if(showAns == false){
+		// it will add answer
+		correctAns++;
+	}else{
+		// it will show result
+		var result = (correctAns/4)*numPerQ;
+		var totalNumb = li.length*numPerQ;
+		document.getElementsByClassName('timeout')[0].innerHTML = 'Result is: ' + result + '/' + totalNumb;
+		document.getElementsByClassName('progress-bar')[0].style.width = 'calc(100% - 3px)';
+	}
+}
+</script>
+</body>
+</html>
